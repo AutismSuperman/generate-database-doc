@@ -1,6 +1,6 @@
 package com.fulinlin.generator.config;
 
-import com.fulinlin.generator.config.querys.MsqlQuery;
+import com.fulinlin.generator.config.querys.MySqlQuery;
 import com.fulinlin.generator.config.querys.OracleQuery;
 import com.fulinlin.generator.enums.DbType;
 import com.fulinlin.generator.exception.NoDatabaseExistsException;
@@ -62,10 +62,10 @@ public class DataSourceConfig {
                     dbQuery = new OracleQuery();
                     break;
                 case MARIADB:
-                    dbQuery = new MsqlQuery();//衍生mysql
+                    dbQuery = new MySqlQuery();//衍生mysql
                     break;
                 default:
-                    dbQuery = new MsqlQuery();//默认mysql
+                    dbQuery = new MySqlQuery();//默认mysql
                     break;
             }
         }

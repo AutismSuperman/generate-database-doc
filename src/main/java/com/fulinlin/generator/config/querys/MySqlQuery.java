@@ -17,7 +17,7 @@ import java.util.Map;
  * @since 2016/8/30
  **/
 @Slf4j
-public class MsqlQuery extends AbstractDbQuery implements IDbQuery {
+public class MySqlQuery extends AbstractDbQuery implements IDbQuery {
 
 
     @Override
