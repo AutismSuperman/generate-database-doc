@@ -6,7 +6,7 @@
 
 #### 使用说明
 ```java
-  //***************数据库配置***************/
+        //***************数据库配置***************/
         DataSourceConfig dataSourceConfig = new DataSourceConfig();
         dataSourceConfig
                 .setDbType(DbType.MYSQL)
