@@ -5,8 +5,6 @@ import com.fulinlin.generator.config.querys.OracleQuery;
 import com.fulinlin.generator.enums.DbType;
 import com.fulinlin.generator.exception.NoDatabaseExistsException;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 import lombok.experimental.Accessors;
 
 import java.sql.Connection;

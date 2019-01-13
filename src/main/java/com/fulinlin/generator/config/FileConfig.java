@@ -3,8 +3,6 @@ package com.fulinlin.generator.config;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
-import java.util.Map;
-
 /**
  * @program: database-doc
  * @author: fulin
