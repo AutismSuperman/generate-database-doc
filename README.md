@@ -1,4 +1,4 @@
-# database-doc
+# generate-database-doc
 
 #### 介绍
 平时领导让写数据库文档，烦死了，于是就写了个基于freemarker 数据库生成word的小玩意。
