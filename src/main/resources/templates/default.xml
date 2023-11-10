@@ -83,14 +83,14 @@
                                 <w:rFonts w:hint="eastAsia"/>
                                 <w:lang w:eastAsia="zh-CN"/>
                             </w:rPr>
-                            <w:t>${t.COMMENTS}</w:t>
+                            <w:t> ${t.table.name}</w:t>
                         </w:r>
                         <w:r>
                             <w:rPr>
                                 <w:rFonts w:hint="eastAsia"/>
                                 <w:lang w:eastAsia="zh-CN"/>
                             </w:rPr>
-                            <w:t>(${t.TABLE_NAME})</w:t>
+                            <w:t> (${t.table.remarks!t.table.name})</w:t>
                         </w:r>
                     </w:p>
                     <w:tbl>
@@ -156,7 +156,7 @@
                                         <w:rPr>
                                             <w:rFonts w:hint="eastAsia"/>
                                         </w:rPr>
-                                        <w:t>${t.COMMENTS}</w:t>
+                                        <w:t>${t.table.remarks}</w:t>
                                     </w:r>
                                 </w:p>
                             </w:tc>
@@ -202,7 +202,7 @@
                                         <w:rPr>
                                             <w:rFonts w:hint="eastAsia"/>
                                         </w:rPr>
-                                        <w:t>${t.TABLE_NAME}</w:t>
+                                        <w:t>${t.table.name}</w:t>
                                     </w:r>
                                 </w:p>
                             </w:tc>
@@ -388,7 +388,7 @@
                                 </w:p>
                             </w:tc>
                         </w:tr>
-                        <#list t.COLUMNS as c>
+                        <#list t.columns?keys as key>
                         <w:tr w:rsidR="00175B3F" w:rsidTr="007C00F7">
                             <w:tc>
                                 <w:tcPr>
@@ -399,7 +399,7 @@
                                 <w:p w:rsidR="00175B3F" w:rsidRPr="00FA6EAC" w:rsidRDefault="00B6768E"
                                      w:rsidP="00CF755D">
                                     <w:r>
-                                        <w:t>${c_index}</w:t>
+                                        <w:t>${key_index}</w:t>
                                     </w:r>
                                 </w:p>
                             </w:tc>
@@ -415,7 +415,7 @@
                                         <w:rPr>
                                             <w:rFonts w:hint="eastAsia"/>
                                         </w:rPr>
-                                        <w:t>${c.COMMENTS?xml}</w:t>
+                                        <w:t>${t.columns[key].remarks}</w:t>
                                     </w:r>
                                 </w:p>
                             </w:tc>
@@ -428,7 +428,7 @@
                                 <w:p w:rsidR="00175B3F" w:rsidRPr="00FA6EAC" w:rsidRDefault="001E788A"
                                      w:rsidP="001E788A">
                                     <w:r>
-                                        <w:t>${c.COLUMN_NAME}</w:t>
+                                        <w:t>${t.columns[key].name}</w:t>
                                     </w:r>
                                 </w:p>
                             </w:tc>
@@ -442,15 +442,15 @@
                                      w:rsidP="00CF755D">
                                     <w:proofErr w:type="gramStart"/>
                                     <w:r>
-                                        <w:t>${c.DATA_TYPE}</w:t>
+                                        <w:t>${t.columns[key].typeName}</w:t>
                                     </w:r>
                                     <w:proofErr w:type="gramEnd"/>
-                                    <#if c.DATA_LENGTH?? && c.DATA_LENGTH!=''>
+                                    <#if t.columns[key].length ?? && t.columns[key].length !=0>
                                     <w:r>
                                         <w:t>(</w:t>
                                     </w:r>
                                     <w:r>
-                                        <w:t>${c.DATA_LENGTH}</w:t>
+                                        <w:t>${t.columns[key].length}</w:t>
                                     </w:r>
                                     <w:r w:rsidR="00175B3F" w:rsidRPr="00FA6EAC">
                                         <w:t>)</w:t>
@@ -466,7 +466,7 @@
                                 </w:tcPr>
                                 <w:p w:rsidR="00175B3F" w:rsidRDefault="001E788A" w:rsidP="00CF755D">
                                     <w:r>
-                                        <w:t>${c.DATA_DEFAULT}</w:t>
+                                        <w:t>${t.columns[key].defaultValue!""}</w:t>
                                     </w:r>
                                 </w:p>
                             </w:tc>
@@ -478,7 +478,7 @@
                                 </w:tcPr>
                                 <w:p w:rsidR="00175B3F" w:rsidRDefault="001E788A" w:rsidP="00CF755D">
                                     <w:r>
-                                        <w:t>${c.NULLABLE}</w:t>
+                                        <w:t>${t.columns[key].nullable?string('是', '否')}</w:t>
                                     </w:r>
                                 </w:p>
                             </w:tc>
