@@ -11,11 +11,17 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
+ * FreemarkerUtil.getInstance().generateFile(
+ * fileConfig.getTemplatesDir(),
+ * fileConfig.getTemplateName(), map,
+ * fileConfig.getOutDir(), fileName);
+ * <p>
  * Description: HelloWorld！ <br/>
  * Autor: Created by fulin on 2016/12/1.
  */
+@Deprecated
 public class FreemarkerUtil {
-    private static FreemarkerUtil freemarkerUtil = new FreemarkerUtil();
+    private static final FreemarkerUtil freemarkerUtil = new FreemarkerUtil();
 
     public static FreemarkerUtil getInstance() {
         return freemarkerUtil;

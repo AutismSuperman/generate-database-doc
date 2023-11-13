@@ -1,8 +1,8 @@
 package com.fulinlin.generator.config;
 
-import lombok.Builder;
+import com.baomidou.mybatisplus.generator.config.IConfigBuilder;
+import com.sun.istack.internal.NotNull;
 import lombok.Data;
-import lombok.experimental.Accessors;
 
 /**
  * @program: database-doc
@@ -10,22 +10,41 @@ import lombok.experimental.Accessors;
  * @create: 2019-01-13 15:12
  **/
 @Data
-@Accessors(chain = true)
 public class FileConfig {
-    /**
-     * 默认模版路径
-     */
-    String templatesDir = "/templates";
+
     /**
      * 默认模版名称
      */
-    String templateName = "default.xml";
-    /**
-     * 输出文件的地址
-     */
-    String outDir;
+    private String template;
     /**
      * 数据的文件名称
      */
-    String outFileName;
+    private String writeFile;
+
+
+    public static class Builder implements IConfigBuilder<FileConfig> {
+        private final FileConfig fileConfig;
+
+        public Builder() {
+            this.fileConfig = new FileConfig();
+        }
+
+
+        public Builder template(@NotNull String template) {
+            this.fileConfig.template = template;
+            return this;
+        }
+
+        public Builder writeFile(@NotNull String writeFile) {
+            this.fileConfig.writeFile = writeFile;
+            return this;
+        }
+
+        @Override
+        public FileConfig build() {
+            return this.fileConfig;
+        }
+    }
+
+
 }
