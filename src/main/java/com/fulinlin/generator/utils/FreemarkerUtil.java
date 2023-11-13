@@ -32,7 +32,7 @@ public class FreemarkerUtil {
      */
     private Template getTemplate(String templatesDir, String name) {
         try {
-            //通过Freemaker的Configuration读取相应的ftl
+            //通过Freemarker的Configuration读取相应的ftl
             Configuration cfg = new Configuration(Configuration.VERSION_2_3_23);
             //设定去哪里读取相应的ftl模板文件
             cfg.setClassForTemplateLoading(this.getClass(), templatesDir);

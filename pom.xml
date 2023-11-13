@@ -5,13 +5,15 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.fulinlin</groupId>
-    <artifactId>database-doc</artifactId>
+    <artifactId>generate-database-doc</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
         <spring-boot.version>2.7.5</spring-boot.version>
         <java.source.version>8</java.source.version>
         <java.target.version>8</java.target.version>
+        <poi-tl.version>1.12.1</poi-tl.version>
+        <mybatis-plus.version>3.5.4.1</mybatis-plus.version>
     </properties>
 
     <dependencyManagement>
@@ -28,6 +30,31 @@
 
 
     <dependencies>
+
+        <!-- generate word  -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-expression</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.deepoove</groupId>
+            <artifactId>poi-tl</artifactId>
+            <version>${poi-tl.version}</version>
+        </dependency>
+
+        <!-- mybatis-plus -->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-core</artifactId>
+            <version>${mybatis-plus.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-generator</artifactId>
+            <version>${mybatis-plus.version}</version>
+        </dependency>
+
+        <!-- Database  Driver  Start-->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -36,26 +63,9 @@
             <groupId>org.mariadb.jdbc</groupId>
             <artifactId>mariadb-java-client</artifactId>
         </dependency>
+        <!-- Database  Driver  End-->
 
-        <dependency>
-            <groupId>org.freemarker</groupId>
-            <artifactId>freemarker</artifactId>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/com.baomidou/mybatis-plus-generator -->
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-core</artifactId>
-            <version>3.5.4.1</version>
-        </dependency>
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-generator</artifactId>
-            <version>3.5.4.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-        </dependency>
+        <!-- log -->
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
@@ -68,7 +78,21 @@
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
         </dependency>
+
+
+        <dependency>
+            <groupId>org.freemarker</groupId>
+            <artifactId>freemarker</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
     </dependencies>
+
+
     <build>
         <finalName>generate-database-doc</finalName>
         <plugins>

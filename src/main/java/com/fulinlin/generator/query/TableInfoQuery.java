@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * @author fulin
@@ -35,7 +36,7 @@ public class TableInfoQuery {
                         databaseMetaDataWrapper.getColumnsInfo(tableName, true);
                 TableInfo tableInfo = new TableInfo();
                 tableInfo.setTable(table);
-                tableInfo.setColumns(columns);
+                tableInfo.setColumns(new ArrayList<>(columns.values()));
                 tableList.add(tableInfo);
             });
         } catch (Exception e) {

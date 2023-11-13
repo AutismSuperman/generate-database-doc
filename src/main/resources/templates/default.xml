@@ -388,7 +388,7 @@
                                 </w:p>
                             </w:tc>
                         </w:tr>
-                        <#list t.columns?keys as key>
+                        <#list t.columns as column>
                         <w:tr w:rsidR="00175B3F" w:rsidTr="007C00F7">
                             <w:tc>
                                 <w:tcPr>
@@ -399,7 +399,7 @@
                                 <w:p w:rsidR="00175B3F" w:rsidRPr="00FA6EAC" w:rsidRDefault="00B6768E"
                                      w:rsidP="00CF755D">
                                     <w:r>
-                                        <w:t>${key_index}</w:t>
+                                        <w:t>${column_index}</w:t>
                                     </w:r>
                                 </w:p>
                             </w:tc>
@@ -415,7 +415,7 @@
                                         <w:rPr>
                                             <w:rFonts w:hint="eastAsia"/>
                                         </w:rPr>
-                                        <w:t>${t.columns[key].remarks}</w:t>
+                                        <w:t>${column.remarks}</w:t>
                                     </w:r>
                                 </w:p>
                             </w:tc>
@@ -428,7 +428,7 @@
                                 <w:p w:rsidR="00175B3F" w:rsidRPr="00FA6EAC" w:rsidRDefault="001E788A"
                                      w:rsidP="001E788A">
                                     <w:r>
-                                        <w:t>${t.columns[key].name}</w:t>
+                                        <w:t>${column.name}</w:t>
                                     </w:r>
                                 </w:p>
                             </w:tc>
@@ -442,15 +442,15 @@
                                      w:rsidP="00CF755D">
                                     <w:proofErr w:type="gramStart"/>
                                     <w:r>
-                                        <w:t>${t.columns[key].typeName}</w:t>
+                                        <w:t>${column.typeName}</w:t>
                                     </w:r>
                                     <w:proofErr w:type="gramEnd"/>
-                                    <#if t.columns[key].length ?? && t.columns[key].length !=0>
+                                    <#if column.length ?? && column.length !=0>
                                     <w:r>
                                         <w:t>(</w:t>
                                     </w:r>
                                     <w:r>
-                                        <w:t>${t.columns[key].length}</w:t>
+                                        <w:t>${column.length}</w:t>
                                     </w:r>
                                     <w:r w:rsidR="00175B3F" w:rsidRPr="00FA6EAC">
                                         <w:t>)</w:t>
@@ -466,7 +466,7 @@
                                 </w:tcPr>
                                 <w:p w:rsidR="00175B3F" w:rsidRDefault="001E788A" w:rsidP="00CF755D">
                                     <w:r>
-                                        <w:t>${t.columns[key].defaultValue!""}</w:t>
+                                        <w:t>${column.defaultValue!""}</w:t>
                                     </w:r>
                                 </w:p>
                             </w:tc>
@@ -478,7 +478,7 @@
                                 </w:tcPr>
                                 <w:p w:rsidR="00175B3F" w:rsidRDefault="001E788A" w:rsidP="00CF755D">
                                     <w:r>
-                                        <w:t>${t.columns[key].nullable?string('是', '否')}</w:t>
+                                        <w:t>${column.nullable?string('是', '否')}</w:t>
                                     </w:r>
                                 </w:p>
                             </w:tc>
