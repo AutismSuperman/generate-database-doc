@@ -1,7 +1,6 @@
 package com.fulinlin.generator.config;
 
 import com.baomidou.mybatisplus.generator.config.IConfigBuilder;
-import com.sun.istack.internal.NotNull;
 import lombok.Data;
 
 /**
@@ -30,12 +29,12 @@ public class FileConfig {
         }
 
 
-        public Builder template(@NotNull String template) {
+        public Builder template( String template) {
             this.fileConfig.template = template;
             return this;
         }
 
-        public Builder writeFile(@NotNull String writeFile) {
+        public Builder writeFile( String writeFile) {
             this.fileConfig.writeFile = writeFile;
             return this;
         }
